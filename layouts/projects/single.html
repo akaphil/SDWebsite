@@ -1,0 +1,135 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <a href="/projects/">Our Work</a>
+      <span>/</span>
+      <span>{{ .Title }}</span>
+    </nav>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}
+    <p class="lead">{{ . }}</p>
+    {{ end }}
+  </div>
+</header>
+
+<!-- Project Content -->
+<section class="section">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Main Content -->
+      <div>
+        {{ .Content }}
+        
+        <!-- Project Details -->
+        {{ if or .Params.location .Params.service .Params.duration .Params.year }}
+        <div class="project-details">
+          <div class="project-meta">
+            {{ with .Params.location }}
+            <div class="project-meta-item">
+              <h4>Location</h4>
+              <p>{{ . }}</p>
+            </div>
+            {{ end }}
+            
+            {{ with .Params.service }}
+            <div class="project-meta-item">
+              <h4>Service</h4>
+              <p>{{ . }}</p>
+            </div>
+            {{ end }}
+            
+            {{ with .Params.duration }}
+            <div class="project-meta-item">
+              <h4>Duration</h4>
+              <p>{{ . }}</p>
+            </div>
+            {{ end }}
+            
+            {{ with .Params.year }}
+            <div class="project-meta-item">
+              <h4>Year</h4>
+              <p>{{ . }}</p>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      
+      <!-- Gallery -->
+      <div>
+        {{ with .Params.images }}
+        <div class="project-gallery">
+          {{ range . }}
+          <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+          {{ end }}
+        </div>
+        {{ else }}
+        <div class="about-image">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="{{ .Title }}">
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- More Projects -->
+{{ $related := where .Site.RegularPages "Section" "projects" | shuffle | first 3 }}
+{{ if $related }}
+<section class="section section--stone">
+  <div class="container">
+    <div class="section-header">
+      <h2>More Projects</h2>
+      <div class="divider"></div>
+    </div>
+    
+    <div class="projects-grid">
+      {{ range $related }}
+      {{ if ne .Permalink $.Permalink }}
+      <article class="project-card">
+        <a href="{{ .Permalink }}">
+          <div class="project-image">
+            {{ with .Params.images }}
+            <img src="{{ index . 0 }}" alt="{{ $.Title }}">
+            {{ else }}
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="{{ .Title }}">
+            {{ end }}
+          </div>
+          <div class="project-content">
+            {{ with .Params.service }}
+            <span class="project-tag">{{ . }}</span>
+            {{ end }}
+            <h3>{{ .Title }}</h3>
+          </div>
+        </a>
+      </article>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Want Similar Results?</h2>
+    <p>Let us bring the same quality craftsmanship to your property.</p>
+    <div class="cta-buttons">
+      <a href="/contact/" class="btn btn--white btn--large">
+        Request a Quote
+      </a>
+      <a href="tel:{{ .Site.Params.company.phone | replaceRE " " "" }}" class="btn btn--secondary btn--large" style="border-color: rgba(255,255,255,0.5); color: white;">
+        Call {{ .Site.Params.company.phone }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

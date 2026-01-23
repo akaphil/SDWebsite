@@ -1,0 +1,156 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <span>Contact</span>
+    </nav>
+    <h1>Get in Touch</h1>
+    <p class="lead">Ready to discuss your project? We'd love to hear from you.</p>
+  </div>
+</header>
+
+<!-- Contact Section -->
+<section class="section">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h2>Let's Talk About Your Project</h2>
+        <p class="lead">Whether you need lime plastering for a period property or help with damp issues, we're here to help. Give us a call or fill in the form and we'll get back to you promptly.</p>
+        
+        <div class="contact-methods">
+          <div class="contact-method">
+            <div class="contact-method-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:{{ .Site.Params.company.phone | replaceRE " " "" }}">{{ .Site.Params.company.phone }}</a>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-method-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:{{ .Site.Params.company.email }}">{{ .Site.Params.company.email }}</a>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-method-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <h4>Location</h4>
+              <p>Based in Stroud, Gloucestershire<br>Serving the Cotswolds &amp; beyond</p>
+            </div>
+          </div>
+          
+          <div class="contact-method">
+            <div class="contact-method-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div>
+              <h4>Hours</h4>
+              <p>Mon–Fri: 8am – 6pm<br>Sat: 9am – 2pm</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Contact Form -->
+      <div class="contact-form-card">
+        <h3>Request a Free Quote</h3>
+        <p style="color: var(--warm-gray); margin-bottom: var(--space-md);">Tell us about your project and we'll get back to you with a quote.</p>
+        
+        <form action="https://formspree.io/f/{{ .Site.Params.company.email }}" method="POST" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" name="name" required placeholder="John Smith">
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input type="tel" id="phone" name="phone" required placeholder="07123 456789">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required placeholder="john@example.com">
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="service">Service Required</label>
+              <select id="service" name="service">
+                <option value="">Select a service...</option>
+                <option value="lime-plastering">Lime Plastering</option>
+                <option value="damp-proofing">Damp Proofing</option>
+                <option value="lime-pointing">Lime Pointing</option>
+                <option value="damp-survey">Damp Survey</option>
+                <option value="both">Multiple Services</option>
+                <option value="other">Other / Not Sure</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="location">Property Location</label>
+              <input type="text" id="location" name="location" placeholder="e.g. Stroud, Cirencester">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="property-type">Property Type</label>
+            <select id="property-type" name="property_type">
+              <option value="">Select property type...</option>
+              <option value="listed">Listed Building</option>
+              <option value="period">Period Property (pre-1919)</option>
+              <option value="modern">Modern Property</option>
+              <option value="commercial">Commercial Building</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Tell Us About Your Project *</label>
+            <textarea id="message" name="message" rows="5" required placeholder="Please describe the work you need. Include any relevant details about your property, the problems you're experiencing, or the results you're looking for."></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="how-found">How Did You Find Us?</label>
+            <select id="how-found" name="how_found">
+              <option value="">Please select...</option>
+              <option value="google">Google Search</option>
+              <option value="recommendation">Recommendation</option>
+              <option value="previous-customer">Previous Customer</option>
+              <option value="social-media">Social Media</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <input type="hidden" name="_subject" value="New quote request from website">
+          
+          <button type="submit" class="btn btn--primary btn--large" style="width: 100%;">
+            Send Request
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+          </button>
+          
+          <p style="font-size: 0.85rem; color: var(--warm-gray); margin-top: var(--space-sm); text-align: center;">
+            We typically respond within 24 hours during working days.
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{ end }}

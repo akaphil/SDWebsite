@@ -1,0 +1,302 @@
+{{ define "main" }}
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        Over {{ .Site.Params.experience }} Years Combined Experience
+      </div>
+      
+      <h1>Traditional Lime Plastering &amp; Damp Proofing Specialists</h1>
+      
+      <p class="hero-subtitle">
+        Expert craftsmen serving Stroud, Cirencester, Tetbury and the Cotswolds. We specialise in sympathetic restoration of period properties using traditional lime-based techniques that allow historic buildings to breathe.
+      </p>
+      
+      <div class="hero-cta">
+        <a href="/contact/" class="btn btn--white btn--large">
+          Get a Free Quote
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="tel:{{ .Site.Params.company.phone | replaceRE " " "" }}" class="btn btn--secondary" style="border-color: rgba(255,255,255,0.5); color: white;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+          {{ .Site.Params.company.phone }}
+        </a>
+      </div>
+      
+      <div class="hero-features">
+        <div class="hero-feature">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          10 Year Guarantee
+        </div>
+        <div class="hero-feature">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          BBA Certified Materials
+        </div>
+        <div class="hero-feature">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          Free Surveys
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="hero-image">
+    <img src="/images/hero.jpg" alt="Traditional lime plastering on a Cotswold stone property">
+  </div>
+</section>
+
+<!-- Services Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Our Specialist Services</h2>
+      <div class="divider"></div>
+      <p>From traditional lime plastering to comprehensive damp solutions, we bring decades of expertise to every project.</p>
+    </div>
+    
+    <div class="services-grid stagger">
+      <!-- Lime Plastering - Featured -->
+      <div class="service-card service-card--featured">
+        <div class="service-image">
+          <span class="service-badge">Our Speciality</span>
+          <img src="/images/limeworkhomeimage.jpg" alt="Traditional lime plastering work">
+        </div>
+        <div class="service-content">
+          <h3>Lime Plastering</h3>
+          <p>Traditional lime plastering for heritage and period properties. We use authentic techniques and materials to restore and protect your building the way it was meant to be.</p>
+          <ul class="service-features">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Lime render &amp; lime pointing
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Internal lime plastering
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Breathable finishes for period homes
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Listed building approved
+            </li>
+          </ul>
+          <a href="/services/lime-plastering/" class="btn btn--primary">Learn More</a>
+        </div>
+      </div>
+      
+      <!-- Damp Proofing -->
+      <div class="service-card">
+        <div class="service-image">
+          <img src="/images/dampproofinghomeimage.jpg" alt="Damp proofing treatment">
+        </div>
+        <div class="service-content">
+          <h3>Damp Proofing</h3>
+          <p>Comprehensive damp diagnosis and treatment using the latest materials and methods. All work comes with our insurance-backed guarantee for your peace of mind.</p>
+          <ul class="service-features">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Rising damp treatment
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Penetrating damp solutions
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              Condensation control
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              10 year insurance-backed guarantee
+            </li>
+          </ul>
+          <a href="/services/damp-proofing/" class="btn btn--primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About/Trust Section -->
+<section class="section section--stone">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image" data-animate>
+        <img src="/images/Jon.png" alt="Jon Wilson, master craftsman at work">
+        <div class="experience-badge">
+          <span class="number">{{ .Site.Params.experience }}</span>
+          <span class="label">Years Experience</span>
+        </div>
+      </div>
+      
+      <div class="about-content">
+        <h2>Craftsmanship You Can Trust</h2>
+        <p class="lead">We're not just contractors – we're craftsmen who genuinely care about preserving the character of your property. Based in Stroud, we've spent decades working on the beautiful period homes throughout the Cotswolds.</p>
+        <p>Whether you've got a listed Georgian townhouse, a Victorian terrace, or a traditional Cotswold stone cottage, we understand that these buildings need to breathe. That's why we specialise in lime-based solutions that work <em>with</em> your building, not against it.</p>
+        
+        <div class="trust-points">
+          <div class="trust-point">
+            <div class="trust-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+            </div>
+            <div>
+              <h4>Insurance-Backed Guarantee</h4>
+              <p>All our work comes with a 10 year guarantee for complete peace of mind.</p>
+            </div>
+          </div>
+          
+          <div class="trust-point">
+            <div class="trust-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"></circle><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"></polyline></svg>
+            </div>
+            <div>
+              <h4>BBA Certified Materials</h4>
+              <p>We only use tested and approved materials that meet the highest standards.</p>
+            </div>
+          </div>
+          
+          <div class="trust-point">
+            <div class="trust-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            </div>
+            <div>
+              <h4>Local Cotswolds Experts</h4>
+              <p>We know the local buildings, stone types, and what works in this area.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Areas Section -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Areas We Cover</h2>
+      <div class="divider"></div>
+      <p>Proudly serving homeowners across Gloucestershire and the Cotswolds from our base in Stroud.</p>
+    </div>
+    
+    <div class="areas-grid stagger">
+      <a href="/areas/stroud/" class="area-card">
+        <img src="/images/stroud.jfif" alt="Stroud - traditional Cotswold stone cottages">
+        <div class="area-card-overlay">
+          <h3>Stroud &amp; Surrounds</h3>
+          <p>Minchinhampton, Rodborough, Nailsworth &amp; more</p>
+          <span class="btn btn--white btn--small">View Area →</span>
+        </div>
+      </a>
+      
+      <a href="/areas/cirencester/" class="area-card">
+        <img src="/images/cirencester.jfif" alt="Cirencester market town">
+        <div class="area-card-overlay">
+          <h3>Cirencester Area</h3>
+          <p>Sapperton, Fairford, Baunton &amp; surrounds</p>
+          <span class="btn btn--white btn--small">View Area →</span>
+        </div>
+      </a>
+      
+      <a href="/areas/tetbury/" class="area-card">
+        <img src="/images/tetbury.jfif" alt="Tetbury - charming Cotswold market town">
+        <div class="area-card-overlay">
+          <h3>Tetbury Area</h3>
+          <p>Westonbirt, Shipton Moyne &amp; villages</p>
+          <span class="btn btn--white btn--small">View Area →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="section section--stone">
+  <div class="container">
+    <div class="section-header">
+      <h2>What Our Customers Say</h2>
+      <div class="divider"></div>
+      <p>Don't just take our word for it – here's what homeowners across the Cotswolds have to say.</p>
+    </div>
+    
+    <div class="testimonials-grid stagger">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-text">"Absolutely brilliant work on our Georgian cottage in Minchinhampton. They really understood what our old walls needed and the lime plastering looks authentic. Highly recommend."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JT</div>
+          <div class="testimonial-info">
+            <h4>James T.</h4>
+            <p>Minchinhampton</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-text">"We had terrible damp issues in our Victorian terrace. They diagnosed the problem properly and fixed it – not just a quick patch job. Two years on and still bone dry."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SH</div>
+          <div class="testimonial-info">
+            <h4>Sarah H.</h4>
+            <p>Stroud</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+        </div>
+        <p class="testimonial-text">"Professional from start to finish. Explained everything clearly, turned up when they said they would, and left the place tidy. The lime render on our barn looks fantastic."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MP</div>
+          <div class="testimonial-info">
+            <h4>Michael P.</h4>
+            <p>Cirencester</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Discuss Your Project?</h2>
+    <p>Whether it's lime plastering for your period property or damp issues that need sorting, we're here to help. Get in touch for a free, no-obligation survey and quote.</p>
+    <div class="cta-buttons">
+      <a href="/contact/" class="btn btn--white btn--large">
+        Request a Quote
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+      <a href="tel:{{ .Site.Params.company.phone | replaceRE " " "" }}" class="btn btn--secondary btn--large" style="border-color: rgba(255,255,255,0.5); color: white;">
+        Call {{ .Site.Params.company.phone }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

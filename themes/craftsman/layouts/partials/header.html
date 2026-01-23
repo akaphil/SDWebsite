@@ -1,0 +1,93 @@
+<!-- Site Header -->
+<header class="site-header" id="site-header">
+  <div class="header-inner">
+    <!-- Logo -->
+    <a href="/" class="site-logo" aria-label="{{ .Site.Params.company.name }} - Home">
+      <img src="/images/logo.png" alt="{{ .Site.Params.company.name }}" width="200" height="50">
+    </a>
+    
+    <!-- Main Navigation -->
+    <nav class="main-nav" aria-label="Main navigation">
+      <ul class="nav-list">
+        <li>
+          <a href="/" class="nav-link{{ if .IsHome }} active{{ end }}">Home</a>
+        </li>
+        <li>
+          <a href="/services/lime-plastering/" class="nav-link{{ if eq .RelPermalink "/services/lime-plastering/" }} active{{ end }}">Lime Plastering</a>
+        </li>
+        <li>
+          <a href="/services/damp-proofing/" class="nav-link{{ if eq .RelPermalink "/services/damp-proofing/" }} active{{ end }}">Damp Proofing</a>
+        </li>
+        <li>
+          <a href="/projects/" class="nav-link{{ if hasPrefix .RelPermalink "/projects" }} active{{ end }}">Our Work</a>
+        </li>
+        <li class="nav-item--dropdown">
+          <a href="/areas/" class="nav-link{{ if hasPrefix .RelPermalink "/areas" }} active{{ end }}">
+            Areas We Cover
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px; vertical-align: middle;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <ul class="nav-dropdown">
+            <li><a href="/areas/stroud/">Stroud & Surrounds</a></li>
+            <li><a href="/areas/cirencester/">Cirencester Area</a></li>
+            <li><a href="/areas/tetbury/">Tetbury Area</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="/about/" class="nav-link{{ if eq .RelPermalink "/about/" }} active{{ end }}">About</a>
+        </li>
+        <li>
+          <a href="/contact/" class="nav-link{{ if eq .RelPermalink "/contact/" }} active{{ end }}">Contact</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <!-- Header CTA -->
+    <div class="header-cta">
+      <a href="tel:{{ .Site.Params.company.phone | replaceRE " " "" }}" class="header-phone">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        {{ .Site.Params.company.phone }}
+      </a>
+      <a href="/contact/" class="btn btn--primary">Get a Quote</a>
+    </div>
+    
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+
+<!-- Mobile Menu -->
+<nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+  <div class="mobile-menu-header">
+    <img src="/images/logo.png" alt="{{ .Site.Params.company.name }}" height="40">
+    <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close menu">&times;</button>
+  </div>
+  
+  <ul class="mobile-nav-list">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/lime-plastering/">Lime Plastering</a></li>
+    <li><a href="/services/damp-proofing/">Damp Proofing</a></li>
+    <li><a href="/projects/">Our Work</a></li>
+    <li><a href="/areas/">Areas We Cover</a></li>
+    <li style="padding-left: 1rem;"><a href="/areas/stroud/">— Stroud</a></li>
+    <li style="padding-left: 1rem;"><a href="/areas/cirencester/">— Cirencester</a></li>
+    <li style="padding-left: 1rem;"><a href="/areas/tetbury/">— Tetbury</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/contact/">Contact</a></li>
+  </ul>
+  
+  <div class="mobile-menu-cta">
+    <p style="margin-bottom: 0.5rem; font-weight: 600;">Call us today</p>
+    <a href="tel:{{ .Site.Params.company.phone | replaceRE " " "" }}" class="btn btn--primary" style="width: 100%; margin-bottom: 0.5rem;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+      {{ .Site.Params.company.phone }}
+    </a>
+    <a href="/contact/" class="btn btn--secondary" style="width: 100%;">Request a Quote</a>
+  </div>
+</nav>

@@ -1,0 +1,16 @@
+name: craftsman
+license: MIT
+licenselink: https://github.com/yourname/craftsman/blob/master/LICENSE
+description: A heritage craftsman theme for building trades
+homepage: https://severndampproofingltd.com
+tags:
+  - craftsman
+  - heritage
+  - building
+  - responsive
+features:
+  - Responsive design
+  - SEO optimised
+  - Contact form
+  - Project showcase
+min_version: "0.80.0"

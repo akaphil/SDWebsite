@@ -1,0 +1,94 @@
+baseURL: "https://severndampproofingltd.com/"
+languageCode: "en-gb"
+title: "Severn Damp Proofing Ltd | Lime Plastering & Damp Specialists | Stroud, Gloucestershire"
+theme: "craftsman"
+
+# SEO and site settings
+enableRobotsTXT: true
+canonifyURLs: true
+
+# Taxonomies for services and areas
+taxonomies:
+  service: services
+  area: areas
+
+# Menu configuration
+menus:
+  main:
+    - name: "Home"
+      url: "/"
+      weight: 1
+    - name: "Lime Plastering"
+      url: "/services/lime-plastering/"
+      weight: 2
+    - name: "Damp Proofing"
+      url: "/services/damp-proofing/"
+      weight: 3
+    - name: "Our Work"
+      url: "/projects/"
+      weight: 4
+    - name: "Areas We Cover"
+      url: "/areas/"
+      weight: 5
+      hasChildren: true
+    - name: "About"
+      url: "/about/"
+      weight: 6
+    - name: "Contact"
+      url: "/contact/"
+      weight: 7
+  
+  areas:
+    - name: "Stroud"
+      url: "/areas/stroud/"
+      weight: 1
+    - name: "Cirencester"
+      url: "/areas/cirencester/"
+      weight: 2
+    - name: "Tetbury"
+      url: "/areas/tetbury/"
+      weight: 3
+
+# Site parameters
+params:
+  # Company info
+  company:
+    name: "Severn Damp Proofing Ltd"
+    phone: "07980 222830"
+    email: "severndampproofing@icloud.com"
+    address: "Stroud, Gloucestershire"
+  
+  # SEO defaults
+  description: "Traditional lime plastering and damp proofing specialists serving Stroud, Cirencester, Tetbury and the Cotswolds. Over 35 years combined experience in heritage building restoration."
+  keywords: "lime plastering, damp proofing, heritage restoration, Stroud, Cirencester, Tetbury, Cotswolds, Gloucestershire, period property, traditional plastering"
+  author: "Severn Damp Proofing Ltd"
+  
+  # Social/OG
+  ogImage: "/images/og-image.jpg"
+  
+  # Features
+  showContactFloat: true
+  
+  # Trust signals
+  experience: "35+"
+  guarantee: "10 year insurance backed guarantee"
+
+# Markup settings
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    style: monokai
+
+# Output formats
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+# Sitemap settings
+sitemap:
+  changefreq: weekly
+  priority: 0.5

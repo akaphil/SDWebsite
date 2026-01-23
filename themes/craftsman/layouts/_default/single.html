@@ -1,0 +1,45 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      {{ if .Parent }}
+      <a href="{{ .Parent.Permalink }}">{{ .Parent.Title }}</a>
+      <span>/</span>
+      {{ end }}
+      <span>{{ .Title }}</span>
+    </nav>
+    <h1>{{ .Title }}</h1>
+    {{ with .Params.description }}
+    <p class="lead">{{ . }}</p>
+    {{ end }}
+  </div>
+</header>
+
+<!-- Main Content -->
+<article class="section">
+  <div class="container container--narrow">
+    {{ .Content }}
+  </div>
+</article>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Ready to Discuss Your Project?</h2>
+    <p>Get in touch for a free, no-obligation survey and quote.</p>
+    <div class="cta-buttons">
+      <a href="/contact/" class="btn btn--white btn--large">
+        Request a Quote
+      </a>
+      <a href="tel:{{ .Site.Params.company.phone | replaceRE " " "" }}" class="btn btn--secondary btn--large" style="border-color: rgba(255,255,255,0.5); color: white;">
+        Call {{ .Site.Params.company.phone }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

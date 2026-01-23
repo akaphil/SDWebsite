@@ -1,0 +1,79 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <span>Our Work</span>
+    </nav>
+    <h1>Our Work</h1>
+    <p class="lead">A selection of lime plastering and damp proofing projects from across Gloucestershire and the Cotswolds.</p>
+  </div>
+</header>
+
+<!-- Projects Grid -->
+<section class="section">
+  <div class="container">
+    {{ with .Content }}
+    <div class="container--narrow mb-xl">
+      {{ . }}
+    </div>
+    {{ end }}
+    
+    <div class="projects-grid stagger">
+      {{ range .Pages }}
+      <article class="project-card">
+        <a href="{{ .Permalink }}">
+          <div class="project-image">
+            {{ with .Params.images }}
+            <img src="{{ index . 0 }}" alt="{{ $.Title }}">
+            {{ else }}
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="{{ .Title }}">
+            {{ end }}
+          </div>
+          <div class="project-content">
+            {{ with .Params.service }}
+            <span class="project-tag">{{ . }}</span>
+            {{ end }}
+            <h3>{{ .Title }}</h3>
+            <p>{{ .Description | truncate 120 }}</p>
+            {{ with .Params.location }}
+            <div class="project-location">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              {{ . }}
+            </div>
+            {{ end }}
+          </div>
+        </a>
+      </article>
+      {{ end }}
+    </div>
+    
+    {{ if not .Pages }}
+    <div class="text-center" style="padding: 4rem 0;">
+      <p style="color: var(--warm-gray); font-size: 1.1rem;">Projects coming soon. Check back for examples of our work.</p>
+      <a href="/contact/" class="btn btn--primary mt-md">Get in Touch</a>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Like What You See?</h2>
+    <p>Let us bring the same quality craftsmanship to your property.</p>
+    <div class="cta-buttons">
+      <a href="/contact/" class="btn btn--white btn--large">
+        Request a Quote
+      </a>
+      <a href="tel:{{ .Site.Params.company.phone | replaceRE " " "" }}" class="btn btn--secondary btn--large" style="border-color: rgba(255,255,255,0.5); color: white;">
+        Call {{ .Site.Params.company.phone }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}

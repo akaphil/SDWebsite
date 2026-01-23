@@ -1,0 +1,64 @@
+<!-- Floating Contact Button for Mobile -->
+<div class="floating-contact">
+  <!-- Phone Button -->
+  <a href="tel:{{ .Site.Params.company.phone | replaceRE " " "" }}" class="floating-btn floating-btn--phone" aria-label="Call us">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+  </a>
+  
+  <!-- Form Toggle Button -->
+  <button class="floating-btn floating-btn--phone" id="floating-form-toggle" aria-label="Request a quote" style="background: var(--brand-navy);">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+  </button>
+</div>
+
+<!-- Floating Contact Form Panel -->
+<div class="floating-form-panel" id="floating-form-panel">
+  <div class="floating-form-header">
+    <h3>Get a Free Quote</h3>
+    <button class="floating-form-close" id="floating-form-close" aria-label="Close form">&times;</button>
+  </div>
+  <div class="floating-form-body">
+    <form action="https://formspree.io/f/{{ .Site.Params.company.email }}" method="POST" class="contact-form">
+      <div class="form-group">
+        <label for="float-name">Your Name *</label>
+        <input type="text" id="float-name" name="name" required placeholder="John Smith">
+      </div>
+      
+      <div class="form-group">
+        <label for="float-phone">Phone Number *</label>
+        <input type="tel" id="float-phone" name="phone" required placeholder="07123 456789">
+      </div>
+      
+      <div class="form-group">
+        <label for="float-email">Email Address</label>
+        <input type="email" id="float-email" name="email" placeholder="john@example.com">
+      </div>
+      
+      <div class="form-group">
+        <label for="float-service">Service Required</label>
+        <select id="float-service" name="service">
+          <option value="">Select a service...</option>
+          <option value="lime-plastering">Lime Plastering</option>
+          <option value="damp-proofing">Damp Proofing</option>
+          <option value="both">Both Services</option>
+          <option value="other">Other / Not Sure</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="float-message">Tell us about your project</label>
+        <textarea id="float-message" name="message" rows="3" placeholder="Brief description of the work needed..."></textarea>
+      </div>
+      
+      <input type="hidden" name="_subject" value="New quote request from website (mobile)">
+      
+      <button type="submit" class="btn btn--primary" style="width: 100%;">
+        Send Request
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<!-- Form Overlay -->
+<div class="mobile-menu-overlay" id="floating-form-overlay"></div>
