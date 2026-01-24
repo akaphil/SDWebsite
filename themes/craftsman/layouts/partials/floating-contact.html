@@ -18,7 +18,7 @@
     <button class="floating-form-close" id="floating-form-close" aria-label="Close form">&times;</button>
   </div>
   <div class="floating-form-body">
-    <form action="https://formspree.io/f/{{ .Site.Params.company.email }}" method="POST" class="contact-form">
+    <form action="https://formspree.io/f/{{ .Site.Params.company.formspree_accountid }}" method="POST" class="contact-form">
       <div class="form-group">
         <label for="float-name">Your Name *</label>
         <input type="text" id="float-name" name="name" required placeholder="John Smith">

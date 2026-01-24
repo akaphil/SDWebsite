@@ -41,6 +41,6 @@ We only use quality lime products from reputable suppliers. Depending on the pro
 - Pozzolanic additives where appropriate
 - Locally-sourced aggregates for authentic appearance
 
-### Our Guarantee
+### Our Commitment
 
-All our lime plastering work comes with a 10-year insurance-backed guarantee. We're confident in our materials and methods, and we stand behind every project we complete.
+We're confident in our materials and methods, and we stand behind every project we complete. Quality craftsmanship using traditional techniques ensures lasting results for your property.

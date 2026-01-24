@@ -70,7 +70,7 @@
         <h3>Request a Free Quote</h3>
         <p style="color: var(--warm-gray); margin-bottom: var(--space-md);">Tell us about your project and we'll get back to you with a quote.</p>
         
-        <form action="https://formspree.io/f/{{ .Site.Params.company.email }}" method="POST" class="contact-form">
+        <form action="https://formspree.io/f/{{ .Site.Params.company.formspree_accountid }}" method="POST" class="contact-form">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name *</label>

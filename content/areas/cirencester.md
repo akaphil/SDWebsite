@@ -50,4 +50,4 @@ The Cirencester area has no shortage of builders offering "quick fix" solutions.
 - **Listed building requirements**: Working within conservation guidelines
 - **Long-term thinking**: Solutions that last, not patches that fail
 
-We've built our reputation on doing the job properly, using the right materials, and standing behind our work with a comprehensive guarantee.
+We've built our reputation on doing the job properly, using the right materials, and standing behind our work.

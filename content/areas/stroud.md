@@ -46,4 +46,4 @@ In **Rodborough**, the steep hillside properties present their own challenges. R
 - **Local knowledge**: We know the area, the stone types, and what works
 - **Traditional methods**: Proper lime plastering, not shortcuts
 - **Honest advice**: We'll tell you what you actually need
-- **Guaranteed work**: 10-year insurance-backed guarantee on all work
+- **Quality assured**: Professional workmanship on every project

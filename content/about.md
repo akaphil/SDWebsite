@@ -31,8 +31,4 @@ Lime work can't be rushed. We take the time to do things properly, because a job
 We know the Cotswolds – the stone types, the building traditions, what works and what doesn't. That local expertise matters.
 
 **Standing Behind Our Work**
-Every job comes with our 10-year insurance-backed guarantee. We're confident in our work, and we want you to be too.
-
-### Our Guarantee
-
-All our work is covered by a comprehensive 10-year insurance-backed guarantee. This means that even if something were to happen to us, your guarantee remains valid. It's the peace of mind you deserve when investing in your property.
+We're confident in our craftsmanship and use only quality materials. Every project receives the same attention to detail, whether it's a small repair or a complete restoration.

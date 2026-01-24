@@ -56,6 +56,6 @@ When you choose us for your Tetbury area property, you get:
 - **Material matching**: Lime mortars mixed to complement your stone
 - **Traditional techniques**: Applied by experienced craftsmen
 - **Clear communication**: We explain what we're doing and why
-- **Lasting results**: Backed by our 10-year insurance guarantee
+- **Lasting results**: Quality materials and traditional techniques
 
 Don't trust your period property to general builders who might reach for the cement bag. Let us show you how proper lime plastering and damp treatment should be done.

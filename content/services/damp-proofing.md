@@ -1,6 +1,6 @@
 ---
 title: "Damp Proofing Services"
-description: "Professional damp proofing and treatment in Gloucestershire. Rising damp, penetrating damp, and condensation solutions with 10-year guarantee."
+description: "Professional damp proofing and treatment in Gloucestershire. Rising damp, penetrating damp, and condensation solutions from experienced specialists."
 keywords: "damp proofing, rising damp, penetrating damp, condensation, damp treatment, damp survey, Gloucestershire, Cotswolds"
 ---
 
@@ -51,10 +51,6 @@ Advice and solutions for ventilation improvements, insulation strategies, and en
 
 **Basement Waterproofing**
 Specialist tanking systems for below-ground spaces, creating dry, usable basement areas.
-
-### 10-Year Insurance-Backed Guarantee
-
-All our damp proofing work comes with a comprehensive 10-year guarantee, backed by independent insurance. This gives you complete peace of mind that the work has been done properly and will last.
 
 ### Free Damp Surveys
 

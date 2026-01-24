@@ -57,6 +57,7 @@ params:
     phone: "07980 222830"
     email: "severndampproofing@icloud.com"
     address: "Stroud, Gloucestershire"
+    formspree_accountid: "maqedbqd"
   
   # SEO defaults
   description: "Traditional lime plastering and damp proofing specialists serving Stroud, Cirencester, Tetbury and the Cotswolds. Over 35 years combined experience in heritage building restoration."
@@ -71,7 +72,6 @@ params:
   
   # Trust signals
   experience: "35+"
-  guarantee: "10 year insurance backed guarantee"
 
 # Markup settings
 markup:
