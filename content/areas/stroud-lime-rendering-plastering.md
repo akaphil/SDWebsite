@@ -28,19 +28,43 @@ testimonial:
 
 Based right here in Stroud, we've spent over 35 years working on the distinctive period properties that make the Five Valleys so special. From the grand wool merchant houses of Painswick to the traditional weavers' cottages dotted along the steep hillsides, we understand what makes these buildings tick – and what they need to survive another century.
 
+<div class="stats-row">
+  <div class="stat-item">
+    <div class="stat-number">35+</div>
+    <div class="stat-label">Years in Stroud</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">Local</div>
+    <div class="stat-label">Stroud Based</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-number">Free</div>
+    <div class="stat-label">Surveys & Quotes</div>
+  </div>
+</div>
+
 ### Understanding Stroud's Unique Building Heritage
 
 Stroud's architectural character is shaped by its remarkable industrial heritage. The steep hills and fast-flowing streams that powered the woolen mills also created one of England's most distinctive built environments. Walking through Stroud and its surrounding villages, you'll encounter:
 
-**Victorian Terraces** clinging to the hillsides, built to house the workers who powered the cloth industry. These properties present particular challenges – their position on steep slopes often leads to damp issues as groundwater migrates through solid stone walls. Proper lime rendering and breathable lime plaster finishes are essential to solving damp in solid walls and keeping these homes healthy.
+<div class="content-block">
+<h4>Victorian Terraces</h4>
+<p>Clinging to the hillsides, built to house the workers who powered the cloth industry. These properties present particular challenges – their position on steep slopes often leads to damp issues as groundwater migrates through solid stone walls. Proper <a href="/services/lime-rendering/">lime rendering</a> and breathable <a href="/services/lime-plastering/">lime plaster</a> finishes are essential to solving damp in solid walls.</p>
+</div>
 
-**Industrial Heritage Buildings** including former mills, dyeworks, and warehouses now converted to residential use. These substantial stone structures were built using traditional lime mortars and require sympathetic treatment. We've restored numerous stone barn conversions and mill buildings across the Stroud valleys, always using hydraulic lime (NHL) appropriate to the building's exposure.
+<div class="content-block content-block--gold">
+<h4>Industrial Heritage Buildings</h4>
+<p>Former mills, dyeworks, and warehouses now converted to residential use. These substantial stone structures were built using traditional lime mortars and require sympathetic treatment. We've restored numerous stone barn conversions and mill buildings across the Stroud valleys, always using hydraulic lime (NHL) appropriate to the building's exposure.</p>
+</div>
 
-**Traditional Cotswold Stone Cottages** found in villages like Minchinhampton, Rodborough, and Chalford. Many of these properties are Grade II Listed, requiring careful attention to AONB regulations and conservation requirements. Our lime rendering and lime plastering work is regularly approved by conservation officers.
+<div class="content-block content-block--slate">
+<h4>Traditional Cotswold Stone Cottages</h4>
+<p>Found in villages like Minchinhampton, Rodborough, and Chalford. Many of these properties are Grade II Listed, requiring careful attention to AONB regulations and conservation requirements. Our <a href="/services/lime-rendering/">lime rendering</a> and <a href="/services/lime-plastering/">lime plastering</a> work is regularly approved by conservation officers.</p>
+</div>
 
 ### Solving Damp in Stroud Properties
 
-The steep terrain around Stroud creates specific damp challenges. Properties built into hillsides often experience:
+The steep terrain around Stroud creates specific [damp challenges](/services/damp-proofing/). Properties built into hillsides often experience:
 
 - **Penetrating damp** from groundwater pressure against retaining walls
 - **Rising damp symptoms** exacerbated by poor ground drainage

@@ -21,10 +21,6 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/areas/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url><url>
     <loc>http://localhost:1313/contact/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -34,6 +30,10 @@
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/gallery/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/areas/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>

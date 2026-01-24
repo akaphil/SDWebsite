@@ -220,4 +220,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
+  // ============================================
+  // FAQ ACCORDION
+  // ============================================
+  const faqQuestions = document.querySelectorAll('.faq-question');
+  
+  faqQuestions.forEach(question => {
+    question.addEventListener('click', function() {
+      const faqItem = this.parentElement;
+      const answer = faqItem.querySelector('.faq-answer');
+      const isActive = faqItem.classList.contains('active');
+      
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item').forEach(item => {
+        item.classList.remove('active');
+        const itemAnswer = item.querySelector('.faq-answer');
+        if (itemAnswer) {
+          itemAnswer.style.maxHeight = '0';
+          itemAnswer.style.paddingTop = '0';
+          itemAnswer.style.paddingBottom = '0';
+        }
+      });
+      
+      // Toggle current item
+      if (!isActive) {
+        faqItem.classList.add('active');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        answer.style.paddingTop = '';
+        answer.style.paddingBottom = '';
+      }
+    });
+  });
+  
+  // Initialize FAQ answers as collapsed
+  document.querySelectorAll('.faq-answer').forEach(answer => {
+    answer.style.maxHeight = '0';
+    answer.style.overflow = 'hidden';
+    answer.style.transition = 'max-height 0.3s ease, padding 0.3s ease';
+  });
+  
 });

@@ -5,7 +5,7 @@
    ============================================ */
 
 /* Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Open+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&family=Open+Sans:wght@400;500;600;700&display=swap');
 
 /* CSS Variables */
 :root {
@@ -38,7 +38,7 @@
   --light-gray: #E8E4DE;           /* Light warm gray */
   
   /* Typography */
-  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Merriweather', Georgia, serif;
   --font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   
   /* Spacing */
@@ -1589,6 +1589,365 @@ p {
 /* Accent divider */
 .divider--gold {
   background: var(--brand-gold);
+}
+
+/* ============================================
+   RICH CONTENT PAGES (Services, Areas)
+   ============================================ */
+
+/* Content wrapper with improved typography */
+.section.content-page {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-2xl);
+}
+
+.content-page .container--narrow {
+  max-width: 900px;
+}
+
+/* Styled content blocks */
+.content-page h2 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  color: var(--brand-green-deep);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--stone-300);
+}
+
+/* First element in content should not have extra top margin */
+.content-page .container--narrow > h2:first-child,
+.content-page .container--narrow > p:first-child,
+.content-page .container--narrow > div:first-child {
+  margin-top: 0;
+}
+
+.content-page h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.4rem);
+  color: var(--charcoal);
+  margin-top: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  position: relative;
+  padding-left: var(--space-md);
+}
+
+.content-page h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.25em;
+  width: 4px;
+  height: 1em;
+  background: var(--brand-gold);
+  border-radius: 2px;
+}
+
+/* Improved list styling */
+.content-page ul,
+.content-page ol {
+  margin: var(--space-md) 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+.content-page ul li,
+.content-page ol li {
+  position: relative;
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-sm);
+  line-height: 1.7;
+}
+
+.content-page ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  background: var(--brand-green);
+  border-radius: 50%;
+}
+
+.content-page ol {
+  counter-reset: item;
+}
+
+.content-page ol li::before {
+  content: counter(item);
+  counter-increment: item;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  background: var(--brand-green);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Bold text within list items */
+.content-page li strong {
+  color: var(--charcoal);
+  font-weight: 600;
+}
+
+/* Highlighted content blocks */
+.content-block {
+  background: var(--stone-100);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  margin: var(--space-lg) 0;
+  border-left: 4px solid var(--brand-green);
+}
+
+.content-block--gold {
+  border-left-color: var(--brand-gold);
+  background: linear-gradient(135deg, #FDF8F0 0%, var(--stone-100) 100%);
+}
+
+.content-block--slate {
+  border-left-color: var(--brand-slate);
+  background: linear-gradient(135deg, #F5F7FA 0%, var(--stone-100) 100%);
+}
+
+.content-block h4 {
+  color: var(--brand-green-deep);
+  margin-bottom: var(--space-sm);
+}
+
+/* Feature boxes for services */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-lg) 0;
+}
+
+.feature-box {
+  background: white;
+  border-radius: 12px;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  border-top: 4px solid var(--brand-green);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.feature-box:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.feature-box--gold {
+  border-top-color: var(--brand-gold);
+}
+
+.feature-box--slate {
+  border-top-color: var(--brand-slate);
+}
+
+.feature-box h4 {
+  color: var(--brand-green-deep);
+  margin-bottom: var(--space-xs);
+}
+
+.feature-box p {
+  color: var(--warm-gray);
+  margin-bottom: 0;
+  font-size: 0.95rem;
+}
+
+/* Alternating content sections */
+.content-section {
+  padding: var(--space-xl) 0;
+}
+
+.content-section:nth-child(even) {
+  background: var(--stone-100);
+}
+
+/* Pull quote / highlight */
+.pull-quote {
+  background: linear-gradient(135deg, var(--brand-green-deep) 0%, var(--brand-green-dark) 100%);
+  color: white;
+  padding: var(--space-xl);
+  border-radius: 12px;
+  margin: var(--space-xl) 0;
+  position: relative;
+}
+
+.pull-quote::before {
+  content: '"';
+  font-family: var(--font-display);
+  font-size: 4rem;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.pull-quote p {
+  font-size: 1.15rem;
+  font-style: italic;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+/* FAQ Section Styling */
+.faq-section {
+  background: var(--stone-200);
+  border-radius: 12px;
+  padding: var(--space-xl);
+  margin: var(--space-xl) 0;
+}
+
+.faq-section h3 {
+  text-align: center;
+  padding-left: 0;
+  margin-bottom: var(--space-lg);
+}
+
+.faq-section h3::before {
+  display: none;
+}
+
+.faq-item {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: var(--space-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.faq-question {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  padding: var(--space-md);
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background var(--transition-fast);
+}
+
+.faq-question:hover {
+  background: var(--stone-50);
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 1.5rem;
+  color: var(--brand-green);
+  font-weight: 400;
+}
+
+.faq-item.active .faq-question::after {
+  content: '−';
+}
+
+.faq-answer {
+  padding: 0 var(--space-md) var(--space-md);
+  color: var(--warm-gray);
+  line-height: 1.7;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+/* Stats/numbers row */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-md);
+  background: var(--brand-green-deep);
+  border-radius: 12px;
+  padding: var(--space-lg);
+  margin: var(--space-xl) 0;
+  text-align: center;
+}
+
+.stat-item {
+  color: white;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--brand-gold);
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Villages/tags list improvement */
+.villages-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-sm);
+}
+
+.village-tag {
+  background: var(--brand-green);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Area page specific */
+.area-intro {
+  font-size: 1.05rem;
+}
+
+.area-intro h2 {
+  margin-top: var(--space-lg);
+}
+
+/* Project snippet card */
+.project-snippet {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  margin: var(--space-xl) 0;
+}
+
+.project-snippet-header {
+  background: var(--brand-green);
+  color: white;
+  padding: var(--space-md);
+}
+
+.project-snippet-header h4 {
+  color: white;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.project-snippet-body {
+  padding: var(--space-lg);
+}
+
+.project-snippet-body ul {
+  margin: var(--space-sm) 0;
 }
 
 /* ============================================

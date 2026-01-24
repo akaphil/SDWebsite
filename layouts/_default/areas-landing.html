@@ -6,11 +6,7 @@
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a>
       <span>/</span>
-      {{ if .Parent }}
-      <a href="{{ .Parent.Permalink }}">{{ .Parent.Title }}</a>
-      <span>/</span>
-      {{ end }}
-      <span>{{ .Title }}</span>
+      <span>Areas We Cover</span>
     </nav>
     <h1>{{ .Title }}</h1>
     {{ with .Params.description }}
@@ -29,8 +25,8 @@
 <!-- CTA Section -->
 <section class="cta-section">
   <div class="container">
-    <h2>Ready to Discuss Your Project?</h2>
-    <p>Get in touch for a free, no-obligation survey and quote.</p>
+    <h2>Ready to Discuss Your Cotswold Property?</h2>
+    <p>Get in touch for a free, no-obligation survey and quote from local heritage specialists.</p>
     <div class="cta-buttons">
       <a href="/contact/" class="btn btn--white btn--large">
         Request a Quote
