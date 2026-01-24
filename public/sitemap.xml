@@ -33,23 +33,31 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/areas/cirencester/</loc>
+    <loc>http://localhost:1313/gallery/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/areas/stroud/</loc>
+    <loc>http://localhost:1313/areas/cirencester-lime-rendering-plastering/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/areas/tetbury/</loc>
+    <loc>http://localhost:1313/areas/stroud-lime-rendering-plastering/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
-    <loc>http://localhost:1313/services/lime-plastering/</loc>
+    <loc>http://localhost:1313/areas/tetbury-lime-rendering-plastering/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url><url>
     <loc>http://localhost:1313/services/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/services/lime-rendering/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url><url>
+    <loc>http://localhost:1313/services/lime-plastering/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

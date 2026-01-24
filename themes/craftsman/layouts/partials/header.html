@@ -12,14 +12,26 @@
         <li>
           <a href="/" class="nav-link{{ if .IsHome }} active{{ end }}">Home</a>
         </li>
-        <li>
-          <a href="/services/lime-plastering/" class="nav-link{{ if eq .RelPermalink "/services/lime-plastering/" }} active{{ end }}">Lime Plastering</a>
+        <li class="nav-item--dropdown">
+          <a href="/services/" class="nav-link{{ if hasPrefix .RelPermalink "/services" }} active{{ end }}">
+            Services
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px; vertical-align: middle;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <ul class="nav-dropdown">
+            <li><a href="/services/lime-rendering/">Lime Rendering</a></li>
+            <li><a href="/services/lime-plastering/">Lime Plastering</a></li>
+            <li><a href="/services/damp-proofing/">Damp Proofing</a></li>
+          </ul>
         </li>
-        <li>
-          <a href="/services/damp-proofing/" class="nav-link{{ if eq .RelPermalink "/services/damp-proofing/" }} active{{ end }}">Damp Proofing</a>
-        </li>
-        <li>
-          <a href="/projects/" class="nav-link{{ if hasPrefix .RelPermalink "/projects" }} active{{ end }}">Our Work</a>
+        <li class="nav-item--dropdown">
+          <a href="/projects/" class="nav-link{{ if or (hasPrefix .RelPermalink "/projects") (hasPrefix .RelPermalink "/gallery") }} active{{ end }}">
+            Our Work
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px; vertical-align: middle;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </a>
+          <ul class="nav-dropdown">
+            <li><a href="/projects/">Projects</a></li>
+            <li><a href="/gallery/">Gallery</a></li>
+          </ul>
         </li>
         <li class="nav-item--dropdown">
           <a href="/areas/" class="nav-link{{ if hasPrefix .RelPermalink "/areas" }} active{{ end }}">
@@ -27,9 +39,9 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left: 4px; vertical-align: middle;"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </a>
           <ul class="nav-dropdown">
-            <li><a href="/areas/stroud/">Stroud & Surrounds</a></li>
-            <li><a href="/areas/cirencester/">Cirencester Area</a></li>
-            <li><a href="/areas/tetbury/">Tetbury Area</a></li>
+            <li><a href="/areas/stroud-lime-rendering-plastering/">Stroud & Surrounds</a></li>
+            <li><a href="/areas/cirencester-lime-rendering-plastering/">Cirencester Area</a></li>
+            <li><a href="/areas/tetbury-lime-rendering-plastering/">Tetbury Area</a></li>
           </ul>
         </li>
         <li>
@@ -71,13 +83,17 @@
   
   <ul class="mobile-nav-list">
     <li><a href="/">Home</a></li>
-    <li><a href="/services/lime-plastering/">Lime Plastering</a></li>
-    <li><a href="/services/damp-proofing/">Damp Proofing</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li style="padding-left: 1rem;"><a href="/services/lime-rendering/">— Lime Rendering</a></li>
+    <li style="padding-left: 1rem;"><a href="/services/lime-plastering/">— Lime Plastering</a></li>
+    <li style="padding-left: 1rem;"><a href="/services/damp-proofing/">— Damp Proofing</a></li>
     <li><a href="/projects/">Our Work</a></li>
+    <li style="padding-left: 1rem;"><a href="/projects/">— Projects</a></li>
+    <li style="padding-left: 1rem;"><a href="/gallery/">— Gallery</a></li>
     <li><a href="/areas/">Areas We Cover</a></li>
-    <li style="padding-left: 1rem;"><a href="/areas/stroud/">— Stroud</a></li>
-    <li style="padding-left: 1rem;"><a href="/areas/cirencester/">— Cirencester</a></li>
-    <li style="padding-left: 1rem;"><a href="/areas/tetbury/">— Tetbury</a></li>
+    <li style="padding-left: 1rem;"><a href="/areas/stroud-lime-rendering-plastering/">— Stroud</a></li>
+    <li style="padding-left: 1rem;"><a href="/areas/cirencester-lime-rendering-plastering/">— Cirencester</a></li>
+    <li style="padding-left: 1rem;"><a href="/areas/tetbury-lime-rendering-plastering/">— Tetbury</a></li>
     <li><a href="/about/">About</a></li>
     <li><a href="/contact/">Contact</a></li>
   </ul>

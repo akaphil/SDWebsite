@@ -1,6 +1,6 @@
 baseURL: "https://severndampproofingltd.com/"
 languageCode: "en-gb"
-title: "Severn Damp Proofing Ltd | Lime Plastering & Damp Specialists | Stroud, Gloucestershire"
+title: "Lime Rendering Stroud & Cotswolds | Severn Damp Proofing"
 theme: "craftsman"
 
 # SEO and site settings
@@ -18,35 +18,53 @@ menus:
     - name: "Home"
       url: "/"
       weight: 1
+    - name: "Services"
+      url: "/services/"
+      weight: 2
+      hasChildren: true
+    - name: "Our Work"
+      url: "/projects/"
+      weight: 3
+      hasChildren: true
+    - name: "Areas We Cover"
+      url: "/areas/"
+      weight: 4
+      hasChildren: true
+    - name: "About"
+      url: "/about/"
+      weight: 5
+    - name: "Contact"
+      url: "/contact/"
+      weight: 6
+  
+  services:
+    - name: "Lime Rendering"
+      url: "/services/lime-rendering/"
+      weight: 1
     - name: "Lime Plastering"
       url: "/services/lime-plastering/"
       weight: 2
     - name: "Damp Proofing"
       url: "/services/damp-proofing/"
       weight: 3
-    - name: "Our Work"
+  
+  work:
+    - name: "Projects"
       url: "/projects/"
-      weight: 4
-    - name: "Areas We Cover"
-      url: "/areas/"
-      weight: 5
-      hasChildren: true
-    - name: "About"
-      url: "/about/"
-      weight: 6
-    - name: "Contact"
-      url: "/contact/"
-      weight: 7
+      weight: 1
+    - name: "Gallery"
+      url: "/gallery/"
+      weight: 2
   
   areas:
     - name: "Stroud"
-      url: "/areas/stroud/"
+      url: "/areas/stroud-lime-rendering-plastering/"
       weight: 1
     - name: "Cirencester"
-      url: "/areas/cirencester/"
+      url: "/areas/cirencester-lime-rendering-plastering/"
       weight: 2
     - name: "Tetbury"
-      url: "/areas/tetbury/"
+      url: "/areas/tetbury-lime-rendering-plastering/"
       weight: 3
 
 # Site parameters
@@ -60,8 +78,8 @@ params:
     formspree_accountid: "maqedbqd"
   
   # SEO defaults
-  description: "Traditional lime plastering and damp proofing specialists serving Stroud, Cirencester, Tetbury and the Cotswolds. Over 35 years combined experience in heritage building restoration."
-  keywords: "lime plastering, damp proofing, heritage restoration, Stroud, Cirencester, Tetbury, Cotswolds, Gloucestershire, period property, traditional plastering"
+  description: "Specialist lime rendering and lime plastering for period homes in Stroud, Cirencester and Tetbury. Over 35 years experience in heritage restoration. Get your free quote today."
+  keywords: "lime rendering, lime plastering, damp proofing, Stroud, Cirencester, Tetbury, Cotswolds, Gloucestershire, period property restoration, Grade II Listed, stone barn conversions, hydraulic lime NHL, breathable finishes"
   author: "Severn Damp Proofing Ltd"
   
   # Social/OG
@@ -72,6 +90,11 @@ params:
   
   # Trust signals
   experience: "35+"
+  
+  # Gallery - Flickr integration
+  flickr:
+    albumId: "72157720123456789"
+    userId: "severndampproofing"
 
 # Markup settings
 markup:

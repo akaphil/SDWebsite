@@ -1,10 +1,10 @@
 ---
-title: "Lime Plastering Services"
-description: "Traditional lime plastering specialists in Gloucestershire. Expert lime render, lime pointing, and internal lime plastering for period and heritage properties."
-keywords: "lime plastering, lime render, lime pointing, traditional plastering, heritage restoration, period property, Cotswolds, Gloucestershire"
+title: "Traditional Lime Plastering for Heritage Properties in Gloucestershire"
+description: "Expert internal lime plastering for Grade II Listed buildings and period properties in Stroud and the Cotswolds. Breathable lime plaster finishes using hydraulic lime (NHL) and fat lime. Free surveys."
+keywords: "lime plastering, internal lime plaster, lime plaster finish, heritage restoration, Grade II Listed, period property restoration, hydraulic lime NHL, fat lime, Stroud, Cotswolds, Gloucestershire"
 ---
 
-## Traditional Lime Plastering for Heritage Properties
+## Traditional Lime Plastering for Heritage Properties in Gloucestershire
 
 Lime plastering isn't just another building trade – it's a craft that has protected buildings for thousands of years. Unlike modern cement-based products, lime allows your walls to breathe, preventing the moisture build-up that causes so many problems in old buildings.
 
