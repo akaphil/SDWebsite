@@ -70,11 +70,11 @@
         <h3>Request a Free Quote</h3>
         <p style="color: var(--warm-gray); margin-bottom: var(--space-md);">Tell us about your project and we'll get back to you with a quote.</p>
         
-        <form action="https://formspree.io/f/{{ .Site.Params.company.formspree_accountid }}" method="POST" class="contact-form">
+        <form id="enquiry-form" class="contact-form">
           <div class="form-row">
             <div class="form-group">
               <label for="name">Your Name *</label>
-              <input type="text" id="name" name="name" required placeholder="John Smith">
+              <input type="text" id="name" name="full_name" required placeholder="John Smith">
             </div>
             
             <div class="form-group">
@@ -103,8 +103,8 @@
             </div>
             
             <div class="form-group">
-              <label for="location">Property Location</label>
-              <input type="text" id="location" name="location" placeholder="e.g. Stroud, Cirencester">
+              <label for="location">Property Address</label>
+              <input type="text" id="location" name="location" placeholder="e.g. 12 Mill Lane, Stroud, GL5 2AA">
             </div>
           </div>
           
@@ -137,17 +137,67 @@
             </select>
           </div>
           
-          <input type="hidden" name="_subject" value="New quote request from website">
-          
           <button type="submit" class="btn btn--primary btn--large" style="width: 100%;">
             Send Request
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
           </button>
-          
-          <p style="font-size: 0.85rem; color: var(--warm-gray); margin-top: var(--space-sm); text-align: center;">
+
+          <p id="form-status" style="font-size: 0.9rem; margin-top: var(--space-sm); text-align: center; min-height: 1.4em;"></p>
+
+          <p style="font-size: 0.85rem; color: var(--warm-gray); margin-top: 0; text-align: center;">
             We typically respond within 24 hours during working days.
           </p>
         </form>
+
+        <script>
+        document.getElementById('enquiry-form').addEventListener('submit', async function(e) {
+          e.preventDefault();
+          const status = document.getElementById('form-status');
+          const btn = this.querySelector('button[type="submit"]');
+          status.style.color = 'var(--warm-gray)';
+          status.textContent = 'Sending…';
+          btn.disabled = true;
+
+          const fd = new FormData(e.target);
+
+          // Build a rich message from the extra fields
+          const parts = [fd.get('message')];
+          if (fd.get('service'))       parts.push('Service: ' + fd.get('service'));
+          if (fd.get('property_type')) parts.push('Property type: ' + fd.get('property_type'));
+          if (fd.get('how_found'))     parts.push('How found: ' + fd.get('how_found'));
+
+          try {
+            const res = await fetch('https://htalnhgmjnghllyeugmo.supabase.co/functions/v1/lead-webhook', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer 120b74e7-4296-4347-851e-32d781dfae81'
+              },
+              body: JSON.stringify({
+                full_name: fd.get('full_name'),
+                email:     fd.get('email'),
+                phone:     fd.get('phone'),
+                address:   fd.get('location') ?? '',
+                message:   parts.join('\n')
+              })
+            });
+
+            if (res.ok) {
+              status.style.color = 'green';
+              status.textContent = "Thanks! We'll be in touch shortly.";
+              e.target.reset();
+            } else {
+              status.style.color = 'red';
+              status.textContent = 'Something went wrong — please try again or call us directly.';
+            }
+          } catch {
+            status.style.color = 'red';
+            status.textContent = 'Network error — please check your connection and try again.';
+          }
+
+          btn.disabled = false;
+        });
+        </script>
       </div>
     </div>
   </div>

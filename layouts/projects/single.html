@@ -63,16 +63,41 @@
       
       <!-- Gallery -->
       <div>
-        {{ with .Params.images }}
-        <div class="project-gallery">
-          {{ range . }}
-          <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
-          {{ end }}
+        {{ if or .Params.before_images .Params.after_images }}
+        <!-- Before & After Comparison -->
+        <div class="before-after-section">
+          <h3>Before &amp; After</h3>
+          <div class="before-after-grid">
+            {{ with .Params.before_images }}
+            <div class="before-after-column">
+              <span class="before-after-label before-label">Before</span>
+              {{ range . }}
+              <img src="{{ . }}" alt="Before - {{ $.Title }}" loading="lazy">
+              {{ end }}
+            </div>
+            {{ end }}
+            {{ with .Params.after_images }}
+            <div class="before-after-column">
+              <span class="before-after-label after-label">After</span>
+              {{ range . }}
+              <img src="{{ . }}" alt="After - {{ $.Title }}" loading="lazy">
+              {{ end }}
+            </div>
+            {{ end }}
+          </div>
         </div>
         {{ else }}
-        <div class="about-image">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="{{ .Title }}">
-        </div>
+          {{ with .Params.images }}
+          <div class="project-gallery">
+            {{ range . }}
+            <img src="{{ . }}" alt="{{ $.Title }}" loading="lazy">
+            {{ end }}
+          </div>
+          {{ else }}
+          <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80" alt="{{ .Title }}">
+          </div>
+          {{ end }}
         {{ end }}
       </div>
     </div>

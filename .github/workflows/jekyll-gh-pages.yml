@@ -69,6 +69,11 @@ jobs:
       - name: Configure Git
         run: |
           git config core.quotepath false
+      - name: Fetch Supabase data
+        env:
+          SUPABASE_URL: https://htalnhgmjnghllyeugmo.supabase.co
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: node scripts/fetch-supabase.mjs
       - name: Cache restore
         id: cache-restore
         uses: actions/cache/restore@v5

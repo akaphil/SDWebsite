@@ -1500,6 +1500,61 @@ p {
   transform: scale(1.02);
 }
 
+/* Before & After Comparison */
+.before-after-section {
+  margin-top: var(--space-lg);
+}
+
+.before-after-section h3 {
+  font-family: var(--font-display);
+  margin-bottom: var(--space-md);
+}
+
+.before-after-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .before-after-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.before-after-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.before-after-column img {
+  border-radius: 8px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.before-after-label {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  width: fit-content;
+}
+
+.before-label {
+  background: var(--stone-300);
+  color: var(--warm-gray);
+}
+
+.after-label {
+  background: var(--brand-green);
+  color: white;
+}
+
 .project-details {
   background: var(--stone-200);
   padding: var(--space-lg);

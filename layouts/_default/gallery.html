@@ -24,68 +24,52 @@
     
     <!-- Gallery Grid -->
     <div class="gallery-grid" id="gallery-grid">
-      <!-- Test images - replace with Flickr API integration when album ID is configured -->
-      <div class="gallery-item" data-category="lime-rendering">
-        <img src="/images/hero.jpg" alt="Lime rendering on Cotswold stone cottage" loading="lazy">
-        <div class="gallery-overlay">
-          <span class="gallery-caption">Lime Rendering - Cotswolds</span>
+      {{ with $.Site.Data.gallery }}
+        {{ range . }}
+        <div class="gallery-item">
+          <img src="{{ .url }}" alt="{{ .caption }}" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-caption">{{ .caption }}</span>
+          </div>
         </div>
-      </div>
-      
-      <div class="gallery-item" data-category="lime-plastering">
-        <img src="/images/limeworkhomeimage.jpg" alt="Traditional lime plastering work" loading="lazy">
-        <div class="gallery-overlay">
-          <span class="gallery-caption">Internal Lime Plastering</span>
+        {{ end }}
+      {{ else }}
+        <div class="gallery-item">
+          <img src="/images/hero.jpg" alt="Lime rendering on Cotswold stone cottage" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-caption">Lime Rendering - Cotswolds</span>
+          </div>
         </div>
-      </div>
-      
-      <div class="gallery-item" data-category="damp-proofing">
-        <img src="/images/dampproofinghomeimage.jpg" alt="Damp proofing treatment" loading="lazy">
-        <div class="gallery-overlay">
-          <span class="gallery-caption">Damp Proofing Treatment</span>
+        <div class="gallery-item">
+          <img src="/images/limeworkhomeimage.jpg" alt="Traditional lime plastering work" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-caption">Internal Lime Plastering</span>
+          </div>
         </div>
-      </div>
-      
-      <div class="gallery-item" data-category="lime-rendering">
-        <img src="/images/stroud.jfif" alt="Period property in Stroud" loading="lazy">
-        <div class="gallery-overlay">
-          <span class="gallery-caption">Stroud - Period Cottage</span>
+        <div class="gallery-item">
+          <img src="/images/dampproofinghomeimage.jpg" alt="Damp proofing treatment" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-caption">Damp Proofing Treatment</span>
+          </div>
         </div>
-      </div>
-      
-      <div class="gallery-item" data-category="lime-plastering">
-        <img src="/images/Jon.png" alt="Craftsman applying lime plaster" loading="lazy">
-        <div class="gallery-overlay">
-          <span class="gallery-caption">Traditional Techniques</span>
+        <div class="gallery-item">
+          <img src="/images/cotswoldstonehouse.jpg" alt="Cotswold stone house" loading="lazy">
+          <div class="gallery-overlay">
+            <span class="gallery-caption">Cotswold Stone Restoration</span>
+          </div>
         </div>
-      </div>
-      
-      <div class="gallery-item" data-category="lime-rendering">
-        <img src="/images/tetbury.jfif" alt="Tetbury stone cottages" loading="lazy">
-        <div class="gallery-overlay">
-          <span class="gallery-caption">Tetbury - Heritage Buildings</span>
-        </div>
-      </div>
-      
-      <div class="gallery-item" data-category="lime-rendering">
-        <img src="/images/cirencester.jfif" alt="Cirencester market town" loading="lazy">
-        <div class="gallery-overlay">
-          <span class="gallery-caption">Cirencester Area</span>
-        </div>
-      </div>
-      
-      <div class="gallery-item" data-category="lime-plastering">
-        <img src="/images/cotswoldstonehouse.jpg" alt="Cotswold stone house" loading="lazy">
-        <div class="gallery-overlay">
-          <span class="gallery-caption">Cotswold Stone Restoration</span>
-        </div>
-      </div>
+      {{ end }}
     </div>
-    
-    <!-- Flickr Attribution -->
+
+    {{ with $.Site.Data.gallery }}
     <div class="gallery-attribution">
-      <p>Want to see more of our work? Follow us on <a href="https://www.flickr.com/photos/severndampproofing" target="_blank" rel="noopener">Flickr</a> for regular project updates.</p>
+      <p>Want to see more of our work? <a href="/projects/">Browse our case studies</a> for full before &amp; after project details.</p>
     </div>
+    {{ else }}
+    <div class="gallery-attribution">
+      <p>More photos coming soon. <a href="/contact/">Get in touch</a> to discuss your project.</p>
+    </div>
+    {{ end }}
   </div>
 </section>
 

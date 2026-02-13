@@ -1,0 +1,7 @@
+# Hugo build output
+public/
+resources/_gen/
+
+# Auto-generated Supabase content (created at build time)
+content/projects/sb-*.md
+data/gallery.json
