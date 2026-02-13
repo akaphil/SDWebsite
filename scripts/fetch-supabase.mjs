@@ -73,8 +73,17 @@ async function fetchGalleryPhotos() {
   return supabaseFetch(endpoint);
 }
 
+function formatService(service) {
+  if (!service) return '';
+  return service
+    .replace(/_/g, ' ')
+    .replace(/\b\w/g, c => c.toUpperCase());
+}
+
 function generateProjectMarkdown(job) {
-  const photos = (job.job_photos || []).sort((a, b) => a.sort_order - b.sort_order);
+  const photos = (job.job_photos || [])
+    .filter(p => p.is_hearted)
+    .sort((a, b) => a.sort_order - b.sort_order);
 
   const beforePhotos = photos.filter(p => p.photo_type === 'before');
   const afterPhotos = photos.filter(p => p.photo_type === 'after');
@@ -90,7 +99,7 @@ function generateProjectMarkdown(job) {
   }
   yaml += `date: ${dateStr}\n`;
   if (job.service) {
-    yaml += `service: "${escapeYaml(job.service)}"\n`;
+    yaml += `service: "${escapeYaml(formatService(job.service))}"\n`;
   }
   if (job.location) {
     yaml += `location: "${escapeYaml(job.location)}"\n`;
