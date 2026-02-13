@@ -962,18 +962,76 @@ p {
   margin: 0;
 }
 
-.project-location {
+.project-meta-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
+  flex-wrap: wrap;
+}
+
+.project-location,
+.project-date {
   display: flex;
   align-items: center;
   gap: 6px;
-  margin-top: var(--space-sm);
   font-size: 0.85rem;
   color: var(--brand-green);
 }
 
-.project-location svg {
+.project-location svg,
+.project-date svg {
   width: 14px;
   height: 14px;
+}
+
+/* ============================================
+   SERVICES LANDING
+   ============================================ */
+.services-landing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+}
+
+@media (min-width: 768px) {
+  .services-landing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.service-landing-card {
+  background: white;
+  border-radius: 12px;
+  padding: var(--space-lg);
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-landing-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.service-landing-card h2 {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--charcoal);
+  margin-bottom: var(--space-sm);
+}
+
+.service-landing-card p {
+  font-size: 0.95rem;
+  color: var(--warm-gray);
+  flex: 1;
+  margin-bottom: var(--space-md);
+}
+
+.service-landing-card .btn {
+  align-self: flex-start;
 }
 
 /* ============================================

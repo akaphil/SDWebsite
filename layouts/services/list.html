@@ -1,0 +1,53 @@
+{{ define "main" }}
+
+<!-- Page Header -->
+<header class="page-header">
+  <div class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span>/</span>
+      <span>Services</span>
+    </nav>
+    <h1>{{ .Title }}</h1>
+    <p class="lead">{{ .Description }}</p>
+  </div>
+</header>
+
+<!-- Services List -->
+<section class="section">
+  <div class="container">
+    {{ with .Content }}
+    <div class="container--narrow mb-xl">
+      {{ . }}
+    </div>
+    {{ end }}
+
+    <div class="services-landing-grid">
+      {{ range .Pages }}
+      <a href="{{ .Permalink }}" class="service-landing-card">
+        <h2>{{ .Title }}</h2>
+        <p>{{ .Description | truncate 160 }}</p>
+        <span class="btn btn--primary">Learn More</span>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <h2>Not Sure What You Need?</h2>
+    <p>Get in touch and we'll help assess your property's needs with a free, no-obligation survey.</p>
+    <div class="cta-buttons">
+      <a href="/contact/" class="btn btn--white btn--large">
+        Request a Quote
+      </a>
+      <a href="tel:{{ .Site.Params.company.phone | replaceRE " " "" }}" class="btn btn--secondary btn--large" style="border-color: rgba(255,255,255,0.5); color: white;">
+        Call {{ .Site.Params.company.phone }}
+      </a>
+    </div>
+  </div>
+</section>
+
+{{ end }}
