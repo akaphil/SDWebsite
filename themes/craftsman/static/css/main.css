@@ -1478,6 +1478,11 @@ p {
 /* ============================================
    SINGLE PROJECT PAGE
    ============================================ */
+.section .about-grid:has(.before-after-section),
+.section .about-grid:has(.project-gallery) {
+  align-items: start;
+}
+
 .project-gallery {
   display: grid;
   grid-template-columns: 1fr;
