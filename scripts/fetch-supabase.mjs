@@ -125,7 +125,7 @@ function generateProjectMarkdown(job) {
 
   yaml += '---\n';
 
-  const body = job.description || '';
+  const body = (job.description || '').trim();
   return yaml + '\n' + body + '\n';
 }
 
