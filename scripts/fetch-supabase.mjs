@@ -46,8 +46,9 @@ function slugify(text) {
     .replace(/^-+|-+$/g, '');
 }
 
-function escapeYaml(str) {
-  if (!str) return '';
+function escapeYaml(val) {
+  if (val === null || val === undefined) return '';
+  const str = String(val);
   return str.replace(/\\/g, '\\\\').replace(/"/g, '\\"');
 }
 
