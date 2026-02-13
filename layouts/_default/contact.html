@@ -166,20 +166,34 @@
           if (fd.get('property_type')) parts.push('Property type: ' + fd.get('property_type'));
           if (fd.get('how_found'))     parts.push('How found: ' + fd.get('how_found'));
 
+          // Convert form service (hyphens) to DB format (underscores)
+          const svcMap = {
+            'lime-plastering': 'lime_plastering',
+            'damp-proofing':   'damp_proofing',
+            'lime-pointing':   'lime_pointing',
+            'damp-survey':     'damp_survey',
+            'other':           'other'
+          };
+          const rawSvc = fd.get('service') || '';
+          const service = svcMap[rawSvc] || undefined;
+
           try {
+            const payload = {
+              full_name: fd.get('full_name'),
+              email:     fd.get('email'),
+              phone:     fd.get('phone'),
+              address:   fd.get('location') ?? '',
+              message:   parts.join('\n')
+            };
+            if (service) payload.service = service;
+
             const res = await fetch('https://htalnhgmjnghllyeugmo.supabase.co/functions/v1/lead-webhook', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer 120b74e7-4296-4347-851e-32d781dfae81'
               },
-              body: JSON.stringify({
-                full_name: fd.get('full_name'),
-                email:     fd.get('email'),
-                phone:     fd.get('phone'),
-                address:   fd.get('location') ?? '',
-                message:   parts.join('\n')
-              })
+              body: JSON.stringify(payload)
             });
 
             if (res.ok) {
