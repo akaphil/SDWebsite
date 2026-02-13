@@ -54,8 +54,7 @@ function escapeYaml(str) {
 async function fetchCaseStudies() {
   const endpoint = '/job_details?' +
     'is_published=eq.true&' +
-    'select=id,title,description,created_at,updated_at,' +
-    'leads!lead_id(address,job_description),' +
+    'select=id,title,subtitle,description,service,year,duration,location,created_at,updated_at,' +
     'job_photos(id,photo_url,photo_type,is_hearted,sort_order)&' +
     'order=created_at.desc';
 
@@ -74,25 +73,31 @@ async function fetchGalleryPhotos() {
 }
 
 function generateProjectMarkdown(job) {
-  const lead = job.leads;
   const photos = (job.job_photos || []).sort((a, b) => a.sort_order - b.sort_order);
 
   const beforePhotos = photos.filter(p => p.photo_type === 'before');
   const afterPhotos = photos.filter(p => p.photo_type === 'after');
   const allPhotoUrls = photos.map(p => p.photo_url);
 
-  const location = lead?.address || '';
   const dateStr = job.created_at ? job.created_at.split('T')[0] : new Date().toISOString().split('T')[0];
-  const year = dateStr.substring(0, 4);
+  const year = job.year || dateStr.substring(0, 4);
 
   let yaml = '---\n';
   yaml += `title: "${escapeYaml(job.title)}"\n`;
-  yaml += `description: "${escapeYaml(job.description)}"\n`;
-  yaml += `date: ${dateStr}\n`;
-  if (location) {
-    yaml += `location: "${escapeYaml(location)}"\n`;
+  if (job.subtitle) {
+    yaml += `description: "${escapeYaml(job.subtitle)}"\n`;
   }
-  yaml += `year: "${year}"\n`;
+  yaml += `date: ${dateStr}\n`;
+  if (job.service) {
+    yaml += `service: "${escapeYaml(job.service)}"\n`;
+  }
+  if (job.location) {
+    yaml += `location: "${escapeYaml(job.location)}"\n`;
+  }
+  if (job.duration) {
+    yaml += `duration: "${escapeYaml(job.duration)}"\n`;
+  }
+  yaml += `year: "${escapeYaml(year)}"\n`;
   yaml += `auto_generated: true\n`;
   yaml += `supabase_id: "${job.id}"\n`;
 
@@ -119,7 +124,7 @@ function generateProjectMarkdown(job) {
 
   yaml += '---\n';
 
-  const body = lead?.job_description || '';
+  const body = job.description || '';
   return yaml + '\n' + body + '\n';
 }
 
