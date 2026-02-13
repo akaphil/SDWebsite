@@ -87,7 +87,7 @@ function generateProjectMarkdown(job) {
 
   const beforePhotos = photos.filter(p => p.photo_type === 'before');
   const afterPhotos = photos.filter(p => p.photo_type === 'after');
-  const allPhotoUrls = photos.map(p => p.photo_url);
+  const allPhotoUrls = afterPhotos.map(p => p.photo_url);
 
   const dateStr = job.created_at ? job.created_at.split('T')[0] : new Date().toISOString().split('T')[0];
   const year = job.year || dateStr.substring(0, 4);
