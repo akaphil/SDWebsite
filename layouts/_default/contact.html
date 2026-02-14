@@ -162,7 +162,6 @@
 
           // Build a rich message from the extra fields
           const parts = [fd.get('message')];
-          if (fd.get('service'))       parts.push('Service: ' + fd.get('service'));
           if (fd.get('property_type')) parts.push('Property type: ' + fd.get('property_type'));
           if (fd.get('how_found'))     parts.push('How found: ' + fd.get('how_found'));
 
@@ -177,6 +176,15 @@
           const rawSvc = fd.get('service') || '';
           const service = svcMap[rawSvc] || undefined;
 
+          // Capture UTM parameters from URL
+          const urlParams = new URLSearchParams(window.location.search);
+          const utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+          const utm = {};
+          utmFields.forEach(key => {
+            const val = urlParams.get(key);
+            if (val) utm[key] = val;
+          });
+
           try {
             const payload = {
               full_name: fd.get('full_name'),
@@ -186,6 +194,7 @@
               message:   parts.join('\n')
             };
             if (service) payload.service = service;
+            if (Object.keys(utm).length > 0) payload.utm = utm;
 
             const res = await fetch('https://htalnhgmjnghllyeugmo.supabase.co/functions/v1/lead-webhook', {
               method: 'POST',
