@@ -176,14 +176,13 @@
           const rawSvc = fd.get('service') || '';
           const service = svcMap[rawSvc] || undefined;
 
-          // Capture UTM parameters from URL
-          const urlParams = new URLSearchParams(window.location.search);
-          const utmFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
-          const utm = {};
-          utmFields.forEach(key => {
-            const val = urlParams.get(key);
-            if (val) utm[key] = val;
-          });
+          // Capture UTM parameters from the page URL
+          const params = new URLSearchParams(window.location.search);
+          const utm_source   = params.get('utm_source');
+          const utm_medium   = params.get('utm_medium');
+          const utm_campaign = params.get('utm_campaign');
+          const utm_term     = params.get('utm_term');
+          const utm_content  = params.get('utm_content');
 
           try {
             const payload = {
@@ -193,8 +192,12 @@
               address:   fd.get('location') ?? '',
               message:   parts.join('\n')
             };
-            if (service) payload.service = service;
-            if (Object.keys(utm).length > 0) payload.utm = utm;
+            if (service)      payload.service      = service;
+            if (utm_source)   payload.utm_source   = utm_source;
+            if (utm_medium)   payload.utm_medium   = utm_medium;
+            if (utm_campaign) payload.utm_campaign = utm_campaign;
+            if (utm_term)     payload.utm_term     = utm_term;
+            if (utm_content)  payload.utm_content  = utm_content;
 
             const res = await fetch('https://htalnhgmjnghllyeugmo.supabase.co/functions/v1/lead-webhook', {
               method: 'POST',
