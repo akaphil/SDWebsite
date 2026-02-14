@@ -176,13 +176,12 @@
           const rawSvc = fd.get('service') || '';
           const service = svcMap[rawSvc] || undefined;
 
-          // Capture UTM parameters from the page URL
-          const params = new URLSearchParams(window.location.search);
-          const utm_source   = params.get('utm_source');
-          const utm_medium   = params.get('utm_medium');
-          const utm_campaign = params.get('utm_campaign');
-          const utm_term     = params.get('utm_term');
-          const utm_content  = params.get('utm_content');
+          // Read UTM parameters from sessionStorage (captured on landing by main.js)
+          const utm_source   = sessionStorage.getItem('utm_source');
+          const utm_medium   = sessionStorage.getItem('utm_medium');
+          const utm_campaign = sessionStorage.getItem('utm_campaign');
+          const utm_term     = sessionStorage.getItem('utm_term');
+          const utm_content  = sessionStorage.getItem('utm_content');
 
           try {
             const payload = {

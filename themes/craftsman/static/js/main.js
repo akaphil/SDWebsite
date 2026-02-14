@@ -3,8 +3,21 @@
  * Handles navigation, mobile menu, floating contact, and animations
  */
 
+// ============================================
+// CAPTURE UTM PARAMETERS ON LANDING
+// Stores in sessionStorage so they persist across page navigations
+// ============================================
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  utmKeys.forEach(function(key) {
+    var val = params.get(key);
+    if (val) sessionStorage.setItem(key, val);
+  });
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
-  
+
   // ============================================
   // HEADER SCROLL EFFECT
   // ============================================
