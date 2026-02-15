@@ -2125,12 +2125,6 @@ p {
 .quote-state-icon--declined { color: #c0392b; }
 .quote-state-icon--warning { color: var(--brand-gold); }
 
-.quote-company-logo {
-  max-height: 64px;
-  max-width: 200px;
-  margin: 0 auto var(--space-sm);
-}
-
 .quote-financials {
   margin-top: var(--space-sm);
 }
@@ -2169,6 +2163,18 @@ p {
 .quote-pdf-link:hover {
   color: var(--brand-green-dark);
   text-decoration: underline;
+}
+
+.quote-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+@media (max-width: 500px) {
+  .quote-detail-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .quote-condition-item {

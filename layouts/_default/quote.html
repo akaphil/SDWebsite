@@ -1,20 +1,13 @@
 {{ define "main" }}
 
-<!-- Page Header -->
-<header class="page-header">
-  <div class="container">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a>
-      <span>/</span>
-      <span>Quote</span>
-    </nav>
-    <h1>Your Quote</h1>
-    <p class="lead">Review and respond to your personalised quote below.</p>
-  </div>
-</header>
-
-<section class="section">
+<section class="section" style="padding-top: calc(80px + var(--space-xl));">
   <div class="container container--narrow">
+
+    <nav class="breadcrumb" aria-label="Breadcrumb" style="justify-content: flex-start; margin-bottom: var(--space-lg);">
+      <a href="/" style="color: var(--warm-gray);">Home</a>
+      <span style="color: var(--stone-400);">/</span>
+      <span style="color: var(--charcoal);">Quote</span>
+    </nav>
 
     <!-- Loading -->
     <div id="state-loading" class="quote-state text-center" style="padding: var(--space-2xl) 0;">
@@ -46,20 +39,26 @@
     <!-- Quote display -->
     <div id="state-quote" class="hidden">
 
-      <!-- Company header -->
-      <div class="quote-company-header text-center mb-lg">
-        <img id="company-logo" class="quote-company-logo hidden" alt="Company logo">
-        <h3 id="company-name"></h3>
-        <p id="company-contact" style="color: var(--warm-gray); font-size: 0.9rem; margin: 0;"></p>
-      </div>
-
-      <p class="greeting" style="font-size: 1.1rem; margin-bottom: var(--space-lg);">Dear <span id="lead-name"></span>,</p>
+      <h1 style="margin-bottom: var(--space-xs);">Your Quote</h1>
       <p id="quote-date" style="color: var(--warm-gray); font-size: 0.9rem; margin-bottom: var(--space-lg);"></p>
 
-      <!-- Description -->
+      <!-- Prepared for -->
       <div class="contact-form-card mb-lg">
-        <h3>Description of Work</h3>
-        <p id="quote-description" style="white-space: pre-wrap; margin: 0;"></p>
+        <h3>Prepared For</h3>
+        <div class="quote-detail-grid">
+          <div class="quote-detail-item">
+            <div class="quote-condition-label">Name</div>
+            <div id="lead-name"></div>
+          </div>
+          <div class="quote-detail-item">
+            <div class="quote-condition-label">Email</div>
+            <div id="lead-email"></div>
+          </div>
+        </div>
+        <div style="margin-top: var(--space-md);">
+          <div class="quote-condition-label">Description of Work</div>
+          <p id="quote-description" style="white-space: pre-wrap; margin: var(--space-xs) 0 0;"></p>
+        </div>
       </div>
 
       <!-- Conditions -->
@@ -183,21 +182,16 @@
   }
 
   function renderQuote(data) {
-    const { quote, lead, company } = data;
-
-    // Company header
-    if (company.logo_url) {
-      $('company-logo').src = company.logo_url;
-      $('company-logo').classList.remove('hidden');
-    }
-    $('company-name').textContent = company.company_name;
-    const contactParts = [company.phone, company.email].filter(Boolean);
-    if (company.vat_number) contactParts.push('VAT: ' + company.vat_number);
-    $('company-contact').textContent = contactParts.join(' \u00b7 ');
+    const { quote, lead } = data;
 
     // Quote info
     $('quote-date').textContent = 'Dated: ' + formatDate(quote.created_at);
     $('lead-name').textContent = lead.full_name;
+    if (lead.email) {
+      $('lead-email').textContent = lead.email;
+    } else {
+      $('lead-email').parentElement.classList.add('hidden');
+    }
     $('quote-description').textContent = quote.description;
 
     // Conditions
