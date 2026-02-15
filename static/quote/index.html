@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Quote</title>
+  <style>
+    :root {
+      --bg: #0e1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #00c9b1;
+      --accent-hover: #00e6cc;
+      --red: #f85149;
+      --red-hover: #ff6b63;
+      --green: #3fb950;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      padding: 24px 16px;
+    }
+    .container {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    /* Loading / Error / Success states */
+    .state {
+      text-align: center;
+      padding: 80px 24px;
+    }
+    .state h2 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+    .state p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+    .state .icon {
+      font-size: 3rem;
+      margin-bottom: 16px;
+    }
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      margin: 0 auto 16px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Company header */
+    .company-header {
+      text-align: center;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .company-logo {
+      max-height: 64px;
+      max-width: 200px;
+      margin-bottom: 12px;
+    }
+    .company-name {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .company-contact {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      margin-top: 4px;
+    }
+
+    /* Quote card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+    .card h3 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .card p, .card .value {
+      font-size: 0.95rem;
+      white-space: pre-wrap;
+    }
+    .greeting {
+      font-size: 1.1rem;
+      margin-bottom: 24px;
+    }
+    .page-title {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .quote-date {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-bottom: 24px;
+    }
+
+    /* Conditions list */
+    .conditions-item {
+      margin-bottom: 16px;
+    }
+    .conditions-item:last-child {
+      margin-bottom: 0;
+    }
+    .conditions-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    /* Financials */
+    .financials {
+      margin-top: 16px;
+    }
+    .fin-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .fin-row:last-child {
+      border-bottom: none;
+    }
+    .fin-row.total {
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--accent);
+      border-top: 2px solid var(--border);
+      border-bottom: none;
+      padding-top: 12px;
+      margin-top: 4px;
+    }
+
+    /* PDF link */
+    .pdf-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-top: 12px;
+    }
+    .pdf-link:hover {
+      color: var(--accent-hover);
+      text-decoration: underline;
+    }
+
+    /* Form */
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .form-group input[type="text"] {
+      width: 100%;
+      padding: 12px 14px;
+      font-size: 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input[type="text"]:focus {
+      border-color: var(--accent);
+    }
+    .checkbox-label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      margin-bottom: 24px;
+    }
+    .checkbox-label input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: var(--accent);
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Buttons */
+    .btn-group {
+      display: flex;
+      gap: 12px;
+    }
+    .btn {
+      flex: 1;
+      padding: 14px 24px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s, opacity 0.2s;
+    }
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .btn-accept {
+      background: var(--accent);
+      color: #000;
+    }
+    .btn-accept:hover:not(:disabled) {
+      background: var(--accent-hover);
+    }
+    .btn-decline {
+      background: transparent;
+      color: var(--red);
+      border: 1px solid var(--red);
+    }
+    .btn-decline:hover:not(:disabled) {
+      background: var(--red);
+      color: #fff;
+    }
+    .form-status {
+      text-align: center;
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+    .form-status.error {
+      color: var(--red);
+    }
+
+    /* Success */
+    .success-icon { color: var(--green); }
+    .declined-icon { color: var(--red); }
+    .expired-icon { color: var(--text-muted); }
+
+    /* Hidden */
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Loading -->
+    <div id="state-loading" class="state">
+      <div class="spinner"></div>
+      <p>Loading your quote&hellip;</p>
+    </div>
+
+    <!-- Error -->
+    <div id="state-error" class="state hidden">
+      <div class="icon expired-icon">&#9888;</div>
+      <h2>Something went wrong</h2>
+      <p id="error-message"></p>
+    </div>
+
+    <!-- Already responded -->
+    <div id="state-responded" class="state hidden">
+      <div class="icon" id="responded-icon"></div>
+      <h2 id="responded-title"></h2>
+      <p id="responded-message"></p>
+    </div>
+
+    <!-- Success (after accepting/declining) -->
+    <div id="state-success" class="state hidden">
+      <div class="icon" id="success-icon"></div>
+      <h2 id="success-title"></h2>
+      <p id="success-message"></p>
+    </div>
+
+    <!-- Quote display -->
+    <div id="state-quote" class="hidden">
+      <div class="company-header">
+        <img id="company-logo" class="company-logo hidden" alt="Company logo">
+        <div id="company-name" class="company-name"></div>
+        <div id="company-contact" class="company-contact"></div>
+      </div>
+
+      <h1 class="page-title">Your Quote</h1>
+      <div id="quote-date" class="quote-date"></div>
+      <p class="greeting">Dear <span id="lead-name"></span>,</p>
+
+      <!-- Description -->
+      <div class="card">
+        <h3>Description of Work</h3>
+        <p id="quote-description"></p>
+      </div>
+
+      <!-- Conditions (shown only if any exist) -->
+      <div id="conditions-card" class="card hidden">
+        <h3>Conditions</h3>
+        <div id="conditions-list"></div>
+      </div>
+
+      <!-- Financials -->
+      <div class="card">
+        <h3>Pricing</h3>
+        <div class="financials">
+          <div class="fin-row">
+            <span>Subtotal</span>
+            <span id="quote-subtotal"></span>
+          </div>
+          <div class="fin-row" id="vat-row">
+            <span>VAT (20%)</span>
+            <span id="quote-vat"></span>
+          </div>
+          <div class="fin-row total">
+            <span>Total</span>
+            <span id="quote-total"></span>
+          </div>
+        </div>
+        <a id="pdf-link" class="pdf-link hidden" href="#" target="_blank" rel="noopener">
+          &#128196; Download PDF Quote
+        </a>
+      </div>
+
+      <!-- Acceptance form -->
+      <div class="card">
+        <h3>Your Response</h3>
+        <form id="acceptance-form">
+          <div class="form-group">
+            <label for="accept-name">Your full name (to confirm acceptance)</label>
+            <input type="text" id="accept-name" required placeholder="e.g. John Smith" autocomplete="name">
+          </div>
+          <label class="checkbox-label">
+            <input type="checkbox" id="accept-terms" required>
+            <span>I have read and agree to the conditions above and wish to proceed with this quote</span>
+          </label>
+          <div class="btn-group">
+            <button type="submit" class="btn btn-accept" id="btn-accept">Accept Quote</button>
+            <button type="button" class="btn btn-decline" id="btn-decline">Decline</button>
+          </div>
+          <p id="form-status" class="form-status hidden"></p>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // ── Configuration ─────────────────────────────────────────────────────────
+    const EDGE_FUNCTION_URL = 'https://htalnhgmjnghllyeugmo.supabase.co/functions/v1/quote-accept';
+
+    // ── Elements ──────────────────────────────────────────────────────────────
+    const $ = (id) => document.getElementById(id);
+
+    const stateLoading   = $('state-loading');
+    const stateError     = $('state-error');
+    const stateResponded = $('state-responded');
+    const stateSuccess   = $('state-success');
+    const stateQuote     = $('state-quote');
+
+    // ── Init ──────────────────────────────────────────────────────────────────
+    const params = new URLSearchParams(window.location.search);
+    const token = params.get('token');
+
+    if (!token) {
+      showError('No quote token found. Please check the link in your email.');
+    } else {
+      loadQuote(token);
+    }
+
+    // ── Load quote ────────────────────────────────────────────────────────────
+    async function loadQuote(token) {
+      try {
+        const res = await fetch(EDGE_FUNCTION_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action: 'fetch', token }),
+        });
+
+        const data = await res.json();
+
+        if (res.status === 409) {
+          showResponded(data.accepted);
+          return;
+        }
+        if (res.status === 410) {
+          showError(data.error || 'This link has expired.');
+          return;
+        }
+        if (!res.ok) {
+          showError(data.error || 'Unable to load quote.');
+          return;
+        }
+
+        renderQuote(data);
+      } catch (e) {
+        showError('Network error. Please check your connection and try again.');
+      }
+    }
+
+    // ── Render ────────────────────────────────────────────────────────────────
+    function formatPence(pence) {
+      return new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' })
+        .format(pence / 100);
+    }
+
+    function formatDate(isoString) {
+      return new Date(isoString).toLocaleDateString('en-GB', {
+        day: 'numeric', month: 'long', year: 'numeric',
+      });
+    }
+
+    function renderQuote(data) {
+      const { quote, lead, company } = data;
+
+      // Company header
+      if (company.logo_url) {
+        $('company-logo').src = company.logo_url;
+        $('company-logo').classList.remove('hidden');
+      }
+      $('company-name').textContent = company.company_name;
+      const contactParts = [company.phone, company.email].filter(Boolean);
+      if (company.vat_number) contactParts.push('VAT: ' + company.vat_number);
+      $('company-contact').textContent = contactParts.join(' · ');
+
+      // Quote info
+      $('quote-date').textContent = 'Dated: ' + formatDate(quote.created_at);
+      $('lead-name').textContent = lead.full_name;
+      $('quote-description').textContent = quote.description;
+
+      // Conditions
+      const conditions = [];
+      if (quote.timescale) conditions.push({ label: 'Estimated Timescale', value: quote.timescale });
+      if (quote.payment_terms) conditions.push({ label: 'Payment Terms', value: quote.payment_terms });
+      if (quote.exclusions) conditions.push({ label: 'Exclusions', value: quote.exclusions });
+      if (quote.conditions_notes) conditions.push({ label: 'Additional Notes', value: quote.conditions_notes });
+
+      if (conditions.length > 0) {
+        const list = $('conditions-list');
+        conditions.forEach(c => {
+          const item = document.createElement('div');
+          item.className = 'conditions-item';
+          item.innerHTML =
+            '<div class="conditions-label">' + escapeHtml(c.label) + '</div>' +
+            '<div class="value">' + escapeHtml(c.value) + '</div>';
+          list.appendChild(item);
+        });
+        $('conditions-card').classList.remove('hidden');
+      }
+
+      // Work dates
+      if (quote.work_start_date || quote.work_end_date) {
+        const dateStr = [quote.work_start_date, quote.work_end_date].filter(Boolean).join(' – ');
+        const item = document.createElement('div');
+        item.className = 'conditions-item';
+        item.innerHTML =
+          '<div class="conditions-label">Proposed Work Dates</div>' +
+          '<div class="value">' + escapeHtml(dateStr) + '</div>';
+        $('conditions-list').appendChild(item);
+        $('conditions-card').classList.remove('hidden');
+      }
+
+      // Financials
+      $('quote-subtotal').textContent = formatPence(quote.subtotal_pence);
+      if (quote.vat_pence > 0) {
+        $('quote-vat').textContent = formatPence(quote.vat_pence);
+      } else {
+        $('vat-row').classList.add('hidden');
+      }
+      $('quote-total').textContent = formatPence(quote.total_pence);
+
+      // PDF
+      if (quote.pdf_url) {
+        $('pdf-link').href = quote.pdf_url;
+        $('pdf-link').classList.remove('hidden');
+      }
+
+      // Show quote
+      stateLoading.classList.add('hidden');
+      stateQuote.classList.remove('hidden');
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ── Form handlers ─────────────────────────────────────────────────────────
+    $('acceptance-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = $('accept-name').value.trim();
+      if (!name) return;
+      await respond('accept', name);
+    });
+
+    $('btn-decline').addEventListener('click', async () => {
+      if (confirm('Are you sure you want to decline this quote?')) {
+        await respond('decline');
+      }
+    });
+
+    async function respond(action, name) {
+      const statusEl = $('form-status');
+      statusEl.textContent = 'Processing…';
+      statusEl.className = 'form-status';
+      statusEl.classList.remove('hidden');
+
+      $('btn-accept').disabled = true;
+      $('btn-decline').disabled = true;
+
+      try {
+        const payload = { action, token };
+        if (name) payload.name = name;
+
+        const res = await fetch(EDGE_FUNCTION_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          statusEl.textContent = data.error || 'Something went wrong. Please try again.';
+          statusEl.classList.add('error');
+          $('btn-accept').disabled = false;
+          $('btn-decline').disabled = false;
+          return;
+        }
+
+        showSuccess(action === 'accept');
+      } catch (e) {
+        statusEl.textContent = 'Network error. Please check your connection and try again.';
+        statusEl.classList.add('error');
+        $('btn-accept').disabled = false;
+        $('btn-decline').disabled = false;
+      }
+    }
+
+    // ── State transitions ─────────────────────────────────────────────────────
+    function showError(msg) {
+      stateLoading.classList.add('hidden');
+      $('error-message').textContent = msg;
+      stateError.classList.remove('hidden');
+    }
+
+    function showResponded(accepted) {
+      stateLoading.classList.add('hidden');
+      if (accepted) {
+        $('responded-icon').innerHTML = '&#10003;';
+        $('responded-icon').className = 'icon success-icon';
+        $('responded-title').textContent = 'Quote Already Accepted';
+        $('responded-message').textContent = 'This quote has already been accepted. No further action is needed.';
+      } else {
+        $('responded-icon').innerHTML = '&#10007;';
+        $('responded-icon').className = 'icon declined-icon';
+        $('responded-title').textContent = 'Quote Already Declined';
+        $('responded-message').textContent = 'This quote has already been declined.';
+      }
+      stateResponded.classList.remove('hidden');
+    }
+
+    function showSuccess(accepted) {
+      stateQuote.classList.add('hidden');
+      if (accepted) {
+        $('success-icon').innerHTML = '&#10003;';
+        $('success-icon').className = 'icon success-icon';
+        $('success-title').textContent = 'Quote Accepted!';
+        $('success-message').textContent = 'Thank you — your acceptance has been recorded and the tradesperson has been notified. They will be in touch shortly to arrange the work.';
+      } else {
+        $('success-icon').innerHTML = '&#10007;';
+        $('success-icon').className = 'icon declined-icon';
+        $('success-title').textContent = 'Quote Declined';
+        $('success-message').textContent = 'The quote has been declined and the tradesperson has been notified.';
+      }
+      stateSuccess.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
