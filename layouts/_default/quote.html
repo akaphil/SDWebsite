@@ -71,7 +71,7 @@
       <div class="contact-form-card mb-lg">
         <h3>Pricing</h3>
         <div class="quote-financials">
-          <div class="quote-fin-row">
+          <div class="quote-fin-row" id="subtotal-row">
             <span>Subtotal</span>
             <span id="quote-subtotal"></span>
           </div>
@@ -227,10 +227,11 @@
     }
 
     // Financials
-    $('quote-subtotal').textContent = formatPence(quote.subtotal_pence);
     if (quote.vat_pence > 0) {
+      $('quote-subtotal').textContent = formatPence(quote.subtotal_pence);
       $('quote-vat').textContent = formatPence(quote.vat_pence);
     } else {
+      $('subtotal-row').classList.add('hidden');
       $('vat-row').classList.add('hidden');
     }
     $('quote-total').textContent = formatPence(quote.total_pence);
