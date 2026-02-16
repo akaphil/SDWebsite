@@ -10,6 +10,12 @@ Period properties across the Cotswolds and Gloucestershire share a common need: 
 
 With over 35 years of hands-on experience restoring heritage buildings — from Grade II Listed Regency terraces to humble stone cottages — we provide the specialist skills these properties demand. We use proper lime: hydraulic lime (NHL) for external work, fat lime putty for internal plastering, and carefully matched aggregates for an authentic finish every time.
 
+**[Lime Rendering](/services/lime-rendering/)** — External lime renders using hydraulic lime (NHL) to protect and restore your building's facade. The breathable alternative to damaging cement render.
+
+**[Lime Plastering](/services/lime-plastering/)** — Internal lime plaster finishes, lime pointing, and traditional haired lime plaster systems that let your walls breathe and stay dry.
+
+**[Damp Proofing](/services/damp-proofing/)** — Diagnosis and treatment of rising damp, penetrating damp, and condensation. We fix the cause, not just the symptoms.
+
 <div class="stats-row">
   <div class="stat-item">
     <div class="stat-number">35+</div>
