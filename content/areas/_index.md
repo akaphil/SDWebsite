@@ -99,6 +99,10 @@ We cover the entire Cotswolds AONB and surrounding areas of Gloucestershire:
 <h4><a href="/areas/tetbury-lime-rendering-plastering/">Tetbury & Southern Cotswolds</a></h4>
 <p>Westonbirt, Shipton Moyne, Beverston, Leighterton, and estate villages.</p>
 </div>
+<div class="feature-box">
+<h4><a href="/areas/cheltenham-lime-plastering-rendering/">Cheltenham & Surrounds</a></h4>
+<p>Britain's finest Regency spa town. Prestbury, Charlton Kings, Winchcombe, Leckhampton, and surrounding villages.</p>
+</div>
 </div>
 
 ### Why Choose Local Specialists?
